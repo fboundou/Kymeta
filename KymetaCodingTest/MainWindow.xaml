@@ -6,7 +6,34 @@
         xmlns:local="clr-namespace:KymetaCodingTest"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="resultOfNumberOfSecond" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60" />
+        <Button x:Name="resetNumberOfSecondButton" BorderThickness="5" Click="resetNumberOfSecond_Click" Background="DarkRed" Foreground="White" Grid.Row="1" Grid.Column="0" Margin="10" Content="Reset" FontSize="30" FontWeight="Bold"/>
+        <TextBox x:Name="arbitraryValueTextBox" PreviewTextInput="validateNumberTextBox"  Grid.Column="1" Grid.Row="0" FontSize="60" Margin="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="arbitraryValueButton" BorderThickness="5" Click="setArbitraryValue_Click" Background="Blue" Foreground="White" Content="Set Timer" Grid.Row="1" Grid.Column="1" Margin="10" FontWeight="Bold" FontSize="30"/>
+        <TextBlock x:Name="resultTextBlock"
+            Grid.Row="0"
+            Grid.Column="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="60"/>
+        <Button x:Name="incrementCounterButton" BorderThickness="5" Background="Green" Foreground="White"
+            Click="incrementCounter_Click"
+            Content="Increment"
+            Margin="10"
+            Grid.Row="1"
+            Grid.Column="2"
+            FontSize="30"
+            FontWeight="Bold"/>
     </Grid>
 </Window>
