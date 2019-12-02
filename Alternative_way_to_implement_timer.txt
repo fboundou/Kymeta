@@ -1,0 +1,7 @@
+
+Also: Include a description of alternative way(s) of implementing a timer like this that does not use a Thread object, 
+But that also does not block the UI or cause other concurrency problems.
+
+1) I think we can use Stopwatch to implement Timer because it allows to measure the elapsed time between two events in our application.
+(Like time when the application starts and time when the application stops) and .NET provides the Stopwatch Class.
+2) And we can use Async / Await to avoid blocking the UI or TPL Task Parallel Library.
