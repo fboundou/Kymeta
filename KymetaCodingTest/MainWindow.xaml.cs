@@ -67,23 +67,21 @@ namespace KymetaCodingTest
         }
 
         /// <summary>
-        /// Set the the timer to new value
+        /// Set the timer to new value
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void setArbitraryValue_Click(object sender, RoutedEventArgs e)
         {
-            if (arbitraryValueTextBox.Text.Length > 0)
+            newVal = helper.ConvertStringToNumber(arbitraryValueTextBox.Text);
+            if (newVal != -1)
             {
-                if (Int32.TryParse(arbitraryValueTextBox.Text, out newVal))
+                lock (lockHandle)
                 {
-                    lock (lockHandle)
-                    {
-                        second = newVal;
-                    }
-                    resultOfNumberOfSecond.Text = second.ToString();
-                    setResult.Set();
+                    second = newVal;
                 }
+                resultOfNumberOfSecond.Text = second.ToString();
+                setResult.Set();
             }
         }
 
@@ -105,8 +103,7 @@ namespace KymetaCodingTest
         // This method allows to validate the input. Only numeric value is allowed
         private void validateNumberTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
+            e.Handled = !helper.IsNumeric(e.Text);
         }
     }
 }
